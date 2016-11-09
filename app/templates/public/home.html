@@ -23,7 +23,7 @@
 		  color: #a94442;
 		}
 	    .modal-dialog {
-	        width: 600px;
+	        width: 400px;
 		}
 	</style>
   </head>
@@ -78,7 +78,7 @@
             </div>
             <div class="modal-body">
               <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-12">
               <form id="sign_up" href="{% url 'home' %}" method="POST"  enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
@@ -92,23 +92,10 @@
                 </div>
               </form>
               </div>
-              <div class="col-md-1">
-              	<p>OR</p>
-              </div>
-              <div class="col-md-5">
-              	<form id="sign_in" href="#" method="POST" enctype="multipart/form-data">
-              	<center><p class="text-muted">Sign In!</p></center>
-              		{% csrf_token %}
-              		 <div class="form-group">
-    					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Username">
-  					</div>
-  					<div class="form-group">
-    					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  					</div>
-  					<center><button type="submit" id="sign_in" class="btn btn-primary">Sign In</button></center>
-              	</form>
-              </div>
             </div>
+            </div>
+            <div class="modal-footer">
+                <a id="change_form"><p class="text-muted">Sign-in</p></a>
             </div>
           </div>
         </div>
