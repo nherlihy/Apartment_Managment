@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from app.views import public, dashboard
+from app.views import public, dashboard, account
 
 urlpatterns = [
 	url(r'^$', public.home, name='home'),
