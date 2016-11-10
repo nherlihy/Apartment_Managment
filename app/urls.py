@@ -4,4 +4,5 @@ from app.views import public, dashboard
 urlpatterns = [
 	url(r'^$', public.home, name='home'),
 	url(r'^dashboard.html/', dashboard.dashboard, name='dashboard'),
+	url(r'^logout', account.log_out, name='logout'),
 ]
