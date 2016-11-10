@@ -20,6 +20,9 @@
         <link rel="stylesheet" type="text/css" href="static/css/home.css">
 
     <style type="text/css">
+	  .popover-content {
+		  color: #a94442;
+		}
 	    .modal-dialog {
 	        width: 400px;
 		}
@@ -45,7 +48,7 @@
                   <li> 
                     <div class="btn-group">
                       <button type="button" class="btn btn-round btn-info">Login</button>
-                      <button type="button" class="btn btn-round btn-info" data-toggle="modal" data-target="#signup_modal">Register</button>
+                      <button type="button" class="btn btn-round btn-info">Register</button>
                     </div>
                   </li>
                 </ul>
@@ -66,7 +69,7 @@
                 <li>
                   <div class="what-we-do">
                     <img src="{% static 'images/check.svg' %}" alt="check">
-                    <p>Split Money</p>
+                    <p>Add Bills</p>
                   </div>
                 </li>
                 <li>
@@ -105,6 +108,8 @@
             </div>
             <div class="modal-body">
               <div class="row">
+              <div class="col-md-5">
+              <form id="sign_up" href="{% url 'home' %}" method="POST" enctype="multipart/form-data">
               <div class="col-md-12">
               <form id="sign_up" href="{% url 'home' %}" method="POST"  enctype="multipart/form-data">
                 {% csrf_token %}
@@ -115,11 +120,14 @@
                           {% crispy user_form user_form.helper %}
                   </center>
 
-                  <center><button type="submit" id="create_account" class="btn btn-primary" >Create Account</button></center>
+                  <center><button type="submit" id="create_account" class="btn btn-primary">Create Account</button></center>
                 </div>
               </form>
               </div>
             </div>
+            </div>
+            <div class="modal-footer">
+                <a id="change_form"><p class="text-muted">Sign-in</p></a>
             </div>
           </div>
         </div>

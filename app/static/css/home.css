@@ -4,11 +4,18 @@ Red color: #BF2C46
 Maroon: #552437
 green: #547779*/
 
+:root{
+	--themeYellow: #EBCE7E;
+	--themeOrange: #D65C47;
+	--themeRed: #BF2C46;
+	--themeMaroon: #552437;
+	--themeGreen: #547779;
+}
 
 .btn-round{
 	border-radius: 17px;
-	background-color: #547779;
-	border-color: #547779;
+	background-color: var(--themeGreen);
+	border-color: var(--themeGreen);
 }
 
 .btn-group{
@@ -21,11 +28,11 @@ green: #547779*/
 
 
 .site-wrapper{
-	background-color: #D65C47;
+	background-color: var(--themeOrange);
 }
 
 .site-wrapper-inner{
-	background-color: #D65C47;
+	background-color: var(--themeOrange);
 }
 
 hr { 
@@ -35,8 +42,8 @@ hr {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     border-width: 2px;
-    color: #547779;
-    background-color: #547779;
+    color: var(--themeGreen);
+    background-color: var(--themeGreen);
 }
 
 /*Li is and image with text beneath it */

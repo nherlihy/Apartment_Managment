@@ -3,6 +3,8 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 
+## Inherited from the default User Model 
+
 class UserForm(forms.ModelForm):
 	class Meta:
 		model = User
