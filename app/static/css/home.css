@@ -12,6 +12,11 @@ green: #547779*/
 	--themeGreen: #547779;
 }
 
+@media (min-width: 900px)
+.site-wrapper-inner {
+    vertical-align: middle;
+}
+
 .btn-round{
 	border-radius: 17px;
 	background-color: var(--themeGreen);
