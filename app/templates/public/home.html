@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,13 +30,21 @@
 
   <body>
 
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#page-top">Apartment</a>
+        </div>
+      </div>
+    </nav>
+
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
 
-          <div class="masthead clearfix">
+          <div class="collapse navbar-collapse">
             <div class="inner">
               <h3 class="masthead-brand">Apartment Managment</h3>
               <ul class="nav masthead-nav">
@@ -44,17 +53,36 @@
                     <button type="button" class="btn btn-round btn-info">Login</button>
                     <button type="button" class="btn btn-round btn-info">Register</button>
                   </div>
-              </li>
+                </li>
               </ul>
             </div>
+            <hr>
           </div>
 
-          <div class="inner cover">
+
+          <div class="inner cover" id="cover-images">
             <h1 class="cover-heading">Cover your page.</h1>
             <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#signup_modal">Sign In/Up</a>
-            </p>
+              <ul>
+                <li>
+                  <div class="what-we-do">
+                    <img src="{% static 'images/check.svg' %}" alt="check">
+                    <p>Split</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="what-we-do">
+                    <img src="{% static 'images/check.svg' %}" alt="check">
+                    <p>Split</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="what-we-do">
+                    <img src="{% static 'images/check.svg' %}" alt="check">
+                    <p>Split</p>
+                  </div>
+                </li>
+              </ul>
           </div>
 
           <div class="mastfoot">
@@ -62,6 +90,7 @@
               <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
             </div>
           </div>
+
 
         </div>
 
@@ -101,6 +130,8 @@
           </div>
         </div>
       </div>
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
