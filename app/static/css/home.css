@@ -1,0 +1,80 @@
+/*Yellowish color: #EBCE7E
+Orange color: #D65C47
+Red color: #BF2C46
+Maroon: #552437
+green: #547779*/
+
+.container{
+	width: 100%;
+	height: auto;
+}
+
+.btn-round{
+	border-radius: 17px;
+	background-color: #547779;
+	border-color: #547779;
+}
+
+.inner .btn-group{
+	align-self: flex-end;
+}
+
+.masthead-brand{
+	text-align: center; 
+}
+
+.masthead{
+	width: 100%;
+}
+
+
+.site-wrapper{
+	background-color: #D65C47;
+}
+
+.site-wrapper-inner{
+	background-color: #D65C47;
+}
+
+hr { 
+	width: 100%;
+    display: block;
+    border-top: 1px solid;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-width: 2px;
+    color: #547779;
+    background-color: #547779;
+}
+
+/*Li is and image with text beneath it */
+#cover-images ul li {
+	width: 25%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px 20px 10px 20px;
+}
+
+
+.what-we-do img {
+	align-self: center;
+	display: inline-block;
+	height: auto;
+	width: 100%;
+	vertical-align: top;
+}
+
+.what-we-do strong{
+	color: #666666;
+}
+
+.what-we-do p{
+  text-align: center;
+	font-size: 100%;
+	font-family: inherit;
+}
+
+.what-we-do h4 {
+	font-size: 125%;
+	font-family: inherit;
+}

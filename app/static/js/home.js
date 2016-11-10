@@ -73,7 +73,6 @@ $(document).ready(function() {
             }
 		    }
 		});
-
 	})
 
     function getCookie(name) {
