@@ -101,7 +101,11 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <center><h2 class="modal-title" id="exampleModalLabel"><p class="text-muted">Manage Now!</p></h2></center>
+              <center>
+                <h2 class="modal-title" id="exampleModalLabel">
+                  <p class="text-muted">Manage Now!</p>
+                </h2>
+              </center>
             </div>
             <div class="modal-body">
               <div class="row">
@@ -110,12 +114,13 @@
                 {% csrf_token %}
                 <div class="form-group">
                 <center><p class="text-muted">Create your FREE Account!</p></center>
+
                   <center>
                           {% load crispy_forms_tags %}
                           {% crispy user_form user_form.helper %}
                   </center>
 
-                  <center><button type="submit" id="create_account" class="btn btn-primary">Create Account</button></center>
+                  <center><button type="submit" id="create_account" class="btn btn-primary btn-round btn-lg">Create Account</button></center>
                 </div>
               </form>
               </div>

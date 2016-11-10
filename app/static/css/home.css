@@ -82,3 +82,35 @@ hr {
 	font-size: 125%;
 	font-family: inherit;
 }
+
+
+/*CSS for the register and the login boxes*/
+#signup_modal{
+	color: var(--themeGreen);
+}
+
+.modal-body, .modal-header{
+    color: #FFFFFF;
+    font-family: inherit;
+	background-color: var(--themeGreen);
+}
+
+.modal-header{
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.modal-body{
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.text-muted {
+    color: #ffffff;
+}
+
+#create_account{
+	background-color: var(--themeOrange);
+	border-radius: 25px;
+}
+
