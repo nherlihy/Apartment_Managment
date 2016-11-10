@@ -7,12 +7,13 @@ $(document).ready(function() {
         var username = $(e.currentTarget).find("#id_username").val();
         var email = $(e.currentTarget).find("#id_email").val();
         var password = $(e.currentTarget).find('#id_password').val();
+        var comfirm_password = $(e.currentTarget).find('#id_comfirm_password').val();
 
 		$.ajax({
 			headers: { 'X-CSRFToken': csrftoken },
 		    url: '',
 		    type: 'POST',
-		    data: {'username' : username, 'email': email, 'password' : password},
+		    data: {'username' : username, 'email': email, 'password' : password, 'comfirm_password' : comfirm_password},
 		    success: function(response) {
 	            if (response.success){
 	                window.location.href = response.data.url;
@@ -53,21 +54,25 @@ $(document).ready(function() {
                     $('#id_password').before('<label for="id_password" class="control-label  requiredField">' + errors.password[0].message + '</label>');
                     $('#id_password').before('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
                     $('#div_id_password').addClass('form-group has-error has-feedback');
+
+                    $('#div_id_comfirm_password').removeClass();
+                    $('#id_comfirm_password').before('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+                    $('#div_id_comfirm_password').addClass('form-group has-error has-feedback');
                 }
 
                 else{
                     $('#div_id_password').removeClass();
                     $('#id_password').before(' <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
                     $('#div_id_password').addClass('form-group has-success has-feedback');
+
+                    $('#div_id_comfirm_password').removeClass();
+                    $('#id_comfirm_password').before(' <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
+                    $('#div_id_comfirm_password').addClass('form-group has-success has-feedback');
                 }
 
             }
 		    }
 		});
-	})
-
-	$("body").on("click", "#change_form",function(e){
-		console.log("caught event");
 	})
 
     function getCookie(name) {
