@@ -4,10 +4,6 @@ Red color: #BF2C46
 Maroon: #552437
 green: #547779*/
 
-.container{
-	width: 100%;
-	height: auto;
-}
 
 .btn-round{
 	border-radius: 17px;
@@ -15,16 +11,12 @@ green: #547779*/
 	border-color: #547779;
 }
 
-.inner .btn-group{
+.btn-group{
 	align-self: flex-end;
 }
 
 .masthead-brand{
 	text-align: center; 
-}
-
-.masthead{
-	width: 100%;
 }
 
 

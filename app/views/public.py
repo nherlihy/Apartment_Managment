@@ -36,4 +36,4 @@ def home(request):
 		return render(request, 'dashboard.html')
 
 	user_form = UserForm()
-	return render(request, 'public/test.html', {'user_form' : user_form})
+	return render(request, 'public/home.html', {'user_form' : user_form})
