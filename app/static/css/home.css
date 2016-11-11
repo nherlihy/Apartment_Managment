@@ -12,9 +12,8 @@ green: #547779*/
 	--themeGreen: #547779;
 }
 
-@media (min-width: 900px)
-.site-wrapper-inner {
-    vertical-align: middle;
+.masthead, .mastfoot, .cover-container{
+	width: 65%;
 }
 
 .btn-round{
@@ -51,14 +50,16 @@ hr {
     background-color: var(--themeGreen);
 }
 
+.cover-heading{
+	margin-bottom: 50px;
+}
+
 /*Li is and image with text beneath it */
 #cover-images ul li {
 	width: 25%;
 	display: inline-block;
 	vertical-align: top;
-	margin: 10px 20px 10px 20px;
 }
-
 
 .what-we-do img {
 	align-self: center;
@@ -74,13 +75,25 @@ hr {
 
 .what-we-do p{
   text-align: center;
-	font-size: 100%;
+	font-size: 120%;
 	font-family: inherit;
 }
 
 .what-we-do h4 {
-	font-size: 125%;
+	font-size: 140%;
 	font-family: inherit;
+}
+
+#track-bills{
+	left: 0%;
+	margin-right: 60px;
+}
+#make-groups{
+	left: 33.33%;
+}
+#plan-expenses{
+	left: 66.66%;
+	margin-left: 60px;
 }
 
 
