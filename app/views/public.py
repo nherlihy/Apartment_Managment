@@ -1,8 +1,9 @@
 import json
 
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 
 from app.forms.user_registration import UserForm
 from app.forms.login import LoginForm
@@ -39,3 +40,8 @@ def home(request):
 	user_form = UserForm()
 	login_form = LoginForm()
 	return render(request, 'public/home.html', {'user_form' : user_form, 'login_form' : login_form})
+
+def test(request):
+	user_objects = User.objects.all()
+	context = {'user_objects': user_objects}
+	return render(request, 'groupTest.html', context)
