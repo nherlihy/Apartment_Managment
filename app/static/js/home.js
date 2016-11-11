@@ -75,6 +75,28 @@ $(document).ready(function() {
 		});
 	})
 
+	$("body").on("click", "#login_button", function(e){
+		e.preventDefault();
+		var csrftoken = getCookie('csrftoken');
+		var username = $("#id_login_username").val();
+		var password = $("#id_login_password").val();
+
+		$.ajax({
+			headers: { 'X-CSRFToken': csrftoken },
+		    url: '/login',
+		    type: 'POST',
+		    data: {'login_username' : username, 'login_password' : password},
+		    success: function(response) {
+	            if (response.success){
+	                window.location.href = response.data.url;
+	            }
+	            else{
+					$('#id_login_username').before('<label for="id_password" class="control-label  requiredField">' + response.data.errors + '</label>');
+	            }
+		    }
+		})
+	})
+
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie != '') {
