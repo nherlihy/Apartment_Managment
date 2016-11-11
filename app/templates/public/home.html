@@ -17,13 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="static/css/cover.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="static/css/home.css">
-
-    <style type="text/css">
-	    .modal-dialog {
-	        width: 400px;
-		}
-	</style>
+    <link rel="stylesheet" type="text/css" href="static/css/home.css">
   </head>
 
   <body>
@@ -44,7 +38,7 @@
                 <ul class="nav masthead-nav">
                   <li> 
                     <div class="btn-group">
-                      <button type="button" class="btn btn-round btn-info">Login</button>
+                      <button type="button" class="btn btn-round btn-info" data-toggle="modal" data-target="#login_modal">Login</button>
                       <button type="button" class="btn btn-round btn-info" data-toggle="modal" data-target="#signup_modal">Register</button>
                     </div>
                   </li>
@@ -98,7 +92,7 @@
     </div>
 
     <div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <center>
@@ -121,6 +115,32 @@
                   </center>
 
                   <center><button type="submit" id="create_account" class="btn btn-primary btn-round btn-lg">Create Account</button></center>
+                </div>
+              </form>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="row">
+              <div class="col-md-12">
+              <form id="login" href="{% url 'login' %}" method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+
+                  <center>
+                          {% load crispy_forms_tags %}
+                          {% crispy login_form login_form.helper %}
+                  </center>
+
+                  <center><button type="submit" id="login_button" class="btn btn-primary btn-round btn-lg">Login</button></center>
                 </div>
               </form>
               </div>
