@@ -109,8 +109,12 @@ hr {
     color: #ffffff;
 }
 
-#create_account{
+#create_account, #login_button{
 	background-color: var(--themeOrange);
 	border-radius: 25px;
+}
+
+.modal-dialog {
+    width: 400px;
 }
 
