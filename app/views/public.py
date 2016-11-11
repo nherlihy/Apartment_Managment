@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from app.forms.user_registration import UserForm
+from app.forms.login import LoginForm
 
 def home(request):
 	if request.method == 'POST':
@@ -36,4 +37,5 @@ def home(request):
 		return render(request, 'dashboard.html')
 
 	user_form = UserForm()
-	return render(request, 'public/home.html', {'user_form' : user_form})
+	login_form = LoginForm()
+	return render(request, 'public/home.html', {'user_form' : user_form, 'login_form' : login_form})
