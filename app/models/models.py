@@ -25,7 +25,7 @@ class Member(models.Model):
     class Meta:
         unique_together = (('member', 'group'),)
 
-    member = models.ForeignKey(User)
+    member = models.OneToOneField(User)
     group = models.ForeignKey(Group)
 
     def get_group(self):
