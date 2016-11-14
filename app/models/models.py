@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 # Each group should have a
 class Group(models.Model):
-    group_name = models.CharField(max_length=30)
+    group_name = models.CharField(max_length=30, unique=True)
 
     @classmethod
     def create(cls, group_name):
