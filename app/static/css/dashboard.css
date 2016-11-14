@@ -3,15 +3,27 @@
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
+:root{
+  --themeYellow: #EBCE7E;
+  --themeOrange: #D65C47;
+  --themeRed: #BF2C46;
+  --themeMaroon: #552437;
+  --themeGreen: #547779;
+}
 body {
+  color: white;
+  background-color: var(--themeOrange);
   padding-top: 50px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 
 /*
  * Global add-ons
  */
-
+.page-header{
+  font-size: 24px;
+}
 .sub-header {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
@@ -32,6 +44,7 @@ body {
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
+  text-shadow: none;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -44,7 +57,7 @@ body {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
+    background-color: var(--themeOrange);
     border-right: 1px solid #eee;
   }
 }
@@ -62,8 +75,8 @@ body {
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #fff;
-  background-color: #428bca;
+  color: white;
+  background-color: var(--themeGreen);
 }
 
 
@@ -84,10 +97,34 @@ body {
   margin-top: 0;
 }
 
+#getStarted{
+  border-radius: 17px;
+  display: block;
+  margin: auto;
+  font-size: 30px;
+  color: #fff;
+  background-color: var(--themeGreen);
+  width: 40%;
+  height: 80px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+#getStarted:hover {
+    background-color: #5bc0de; /* Green */
+    color: white;
+}
+
+.table-responsive{
+  text-shadow: none;
+}
+#expenses tr{ line-height: 14px; }
+
+
 
 /*
  * Placeholder dashboard ideas
- */
+
 
 .placeholders {
   margin-bottom: 30px;
@@ -103,3 +140,4 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+ */
