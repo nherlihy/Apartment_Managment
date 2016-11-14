@@ -23,9 +23,9 @@ class Member(models.Model):
 
     # Ensure each member and group combination is unique
     class Meta:
-        unique_together = (('member', 'group'),)
+        unique_together = (('user', 'group'),)
 
-    member = models.OneToOneField(User)
+    user = models.OneToOneField(User)
     group = models.ForeignKey(Group)
 
     def get_group(self):
