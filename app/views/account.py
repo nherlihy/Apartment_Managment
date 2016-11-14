@@ -2,7 +2,7 @@ import json
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, authenticate, login
-from django.shortcuts import HttpResponseRedirect, HttpResponse
+from django.shortcuts import HttpResponseRedirect, HttpResponse, render
 
 from app.forms.user_registration import UserForm
 from app.forms.login import LoginForm
@@ -42,3 +42,7 @@ def log_in(request):
 		user_form = UserForm()
 		login_form = LoginForm()
 		return render(request, 'public/home.html', {'user_form' : user_form, 'login_form' : login_form})
+
+@login_required
+def register(request):
+	return render(request, 'account/group.html')

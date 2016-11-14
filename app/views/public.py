@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect, HttpResponse, Http404
 
 from app.forms.user_registration import UserForm
 from app.forms.login import LoginForm
+from app.services.user import user_is_member
 
 def home(request):
 	if request.method == 'POST':
@@ -35,7 +36,11 @@ def home(request):
 		return HttpResponse(json.dumps(response), content_type='application/json')
 
 	elif request.user.is_authenticated and request.user.username != '':
-		return render(request, 'dashboard.html')
+		if user_is_member(request.user):
+			return render(request, 'dashboard.html')
+
+		else:
+			return HttpResponseRedirect('/register')
 
 	user_form = UserForm()
 	login_form = LoginForm()
