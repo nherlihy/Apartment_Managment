@@ -6,5 +6,6 @@ urlpatterns = [
 	url(r'^dashboard', dashboard.dashboard, name='dashboard'),
 	url(r'^logout', account.log_out, name='logout'),
 	url(r'^login', account.log_in, name='login'),
+	url(r'^register', account.register, name='register'),
 	url(r'^test', public.test, name='test'),
 ]
