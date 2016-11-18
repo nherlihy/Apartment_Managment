@@ -36,11 +36,11 @@ def home(request):
 		return HttpResponse(json.dumps(response), content_type='application/json')
 
 	elif request.user.is_authenticated and request.user.username != '':
-		#if user_is_member(request.user):
-		return render(request, 'dashboard.html')
+		if user_is_member(request.user):
+			return render(request, 'dashboard.html')
 
-		#else:
-			#return HttpResponseRedirect('/register')
+		else:
+			return HttpResponseRedirect('/register')
 
 	user_form = UserForm()
 	login_form = LoginForm()
