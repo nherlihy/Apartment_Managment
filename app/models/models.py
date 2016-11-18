@@ -7,7 +7,9 @@ from django.contrib.auth.models import User
 
 # Each group should have a
 class Group(models.Model):
-    group_name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
+    code = models.CharField(max_length=6, unique=True)
+
 
     @classmethod
     def create(cls, group_name):
@@ -16,7 +18,7 @@ class Group(models.Model):
         return group
 
     def __str__(self):
-        return self.group_name
+        return self.name
 
 
 class Member(models.Model):
@@ -26,7 +28,7 @@ class Member(models.Model):
         unique_together = (('user', 'group'),)
 
     user = models.OneToOneField(User)
-    group = models.ForeignKey(Group)
+    group = models.ForeignKey(Group, related_name='members')
 
     def get_group(self):
         return Group.objects.get(pk=self.group_id)
