@@ -91,6 +91,7 @@ $(document).ready(function() {
 	                window.location.href = response.data.url;
 	            }
 	            else{
+                    $('.control-label').remove();
 					$('#id_login_username').before('<label for="id_password" class="control-label  requiredField">' + response.data.errors + '</label>');
 	            }
 		    }
