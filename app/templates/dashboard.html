@@ -46,7 +46,8 @@
     <div class="container-fluid">
       <div class="row">
         <div id="mainContent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+
+          <h1 class="page-header">{{ request.user.member.group.name }}</h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -205,5 +206,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src ="static/js/dashboard.js"></script>
   </body>
 </html>
