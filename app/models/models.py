@@ -12,8 +12,8 @@ class Group(models.Model):
 
 
     @classmethod
-    def create(cls, group_name):
-        group = cls(group_name=group_name)
+    def create(cls, name):
+        group = cls(name=name)
         group.save()
         return group
 
@@ -34,7 +34,7 @@ class Member(models.Model):
         return Group.objects.get(pk=self.group_id)
 
     def get_group_info(self):
-        return self.group.group_name
+        return self.group.name
 
     @classmethod
     def create(cls, member, group):
