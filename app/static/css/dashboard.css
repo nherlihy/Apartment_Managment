@@ -9,10 +9,12 @@
   --themeRed: #BF2C46;
   --themeMaroon: #552437;
   --themeGreen: #547779;
+  --themeLightGray: #B2B3B5;
+  --themeDarkGray: #59595A;
 }
 body {
   color: white;
-  background-color: var(--themeOrange);
+  background-color: var(--themeLightGray);
   padding-top: 50px;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
@@ -20,6 +22,52 @@ body {
 h4 {
   text-align: center;
 }
+
+/*Make a circular div for the user profile images*/
+.profile-image{
+  border-radius: 50%;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.profile-general{
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  align-items: center;
+}
+
+.profile-general span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-size: 50px;
+}
+
+.profile-1 {
+    background: var(--themeRed);
+    border: 4px solid var(--themeDarkGray); 
+}
+
+.profile-2 {
+    background: var(--themeOrange);
+    border: 4px solid var(--themeDarkGray); 
+}
+
+.profile-3 {
+    background: var(--themeGreen);
+    border: 4px solid var(--themeDarkGray); 
+}
+
+.profile-4 {
+    background: var(--themeMaroon);
+    border: 4px solid var(--themeDarkGray); 
+}
+
+
+
+
 /*
  * Global add-ons
  */
@@ -59,7 +107,7 @@ h4 {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: var(--themeOrange);
+    background-color: var(--themeLightGray);
     border-right: 1px solid #eee;
   }
 }

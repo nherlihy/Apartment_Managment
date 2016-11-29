@@ -13,7 +13,7 @@ green: #547779*/
 }
 
 .masthead, .mastfoot, .cover-container{
-	width: 65%;
+	width: 75%;
 }
 
 .btn-round{
@@ -89,9 +89,11 @@ hr {
 	left: 0%;
 	margin-right: 60px;
 }
+
 #make-groups{
 	left: 33.33%;
 }
+
 #plan-expenses{
 	left: 66.66%;
 	margin-left: 60px;
