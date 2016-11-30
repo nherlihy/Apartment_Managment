@@ -44,9 +44,10 @@ def home(request):
             group = request.user.member.group   # get the group from the request
             group_members = Member.objects.filter(group_id=group)
             expense_form = ExpenseForm()
+            expense_form.fields['pay_to'].queryset = group_members
             group_expenses = Expense.objects.order_by('id')
             return render(request, 'dashboard.html',
-                          {'expense_form': expense_form, 'group_expenses': group_expenses, 'group_members': group_members})
+                          {'expense_form' : expense_form, 'group_expenses': group_expenses, 'group_members': group_members})
 
         else:
             return HttpResponseRedirect('/register')
