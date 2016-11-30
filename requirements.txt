@@ -3,7 +3,6 @@ deferred==0.2
 dj-database-url==0.4.1
 Django==1.9.1
 django-crispy-forms==1.6.0
-dnet==1.12
 get==0.0.0
 gnuplot-py==1.8
 gunicorn==19.6.0
