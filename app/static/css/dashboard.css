@@ -71,6 +71,18 @@ h4 {
     border: 4px solid var(--themeDarkGray);
 }
 
+#create_group_button, #join_group_button
+{
+  background-color: var(--themeOrange);
+  border-radius: 25px;
+  border-color: var(--themeLightGray);
+}
+
+#create_group_button:hover, #join_group_button:hover{
+  border: 1px solid var(--themeDarkGray);
+}
+
+
 .btn-circle {
   width: 49px;
   height: 49px;
@@ -80,7 +92,26 @@ h4 {
   line-height: 2.00;
   border-radius: 50%;
   background-color: var(--themeOrange);
-  border: 1px solid var(--themeDarkGray); 
+  border: 1px solid var(--themeLightGray);
+}
+ {
+  color: #fff;
+  background-color: #286090;
+  border-color: #122b40;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: var(--themeOrange);
+  border-color: var(--themeDarkGray);
+}
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: var(--themeOrange);
+  border-color: var(--themeLightGray);
 }
 
 .placeholders{
@@ -116,8 +147,27 @@ hr {
  */
 .navbar-fixed-top {
   border: 0;
+  background-color: var(--themeOrange);
+  color: white;
 }
 
+.navbar-inverse .navbar-brand {
+  color: white;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: white;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: var(--themeLightGray);
+  background-color: transparent;
+}
 /*
  * Sidebar
  */
@@ -165,24 +215,6 @@ hr {
   width: 100%;
 }
 
-#getStarted{
-  border-radius: 17px;
-  display: block;
-  margin: auto;
-  font-size: 30px;
-  color: #fff;
-  background-color: var(--themeGreen);
-  width: 35%;
-  height: 100px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-}
-
-#getStarted:hover {
-    background-color: #5bc0de; /* Green */
-    color: white;
-}
-
 .table-responsive{
   text-shadow: none;
 }
@@ -198,6 +230,10 @@ hr {
 /*CSS for the register and the login boxes*/
 #expense_modal{
   color: var(--themeGreen);
+}
+
+#expense_submit{
+  background-color: var(--themeOrange);
 }
 
 .modal-body, .modal-header{
@@ -228,7 +264,6 @@ hr {
 .modal-dialog {
     width: 400px;
 }
-
 
 
 /*
