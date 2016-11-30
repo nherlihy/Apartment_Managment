@@ -1,0 +1,1 @@
+Added a test file to initialize the database with a test group

@@ -104,3 +104,4 @@ def add_to_group(request):
             response['failed'] = 'failed'
 
         return HttpResponse(json.dumps(response), content_type='application/json')
+

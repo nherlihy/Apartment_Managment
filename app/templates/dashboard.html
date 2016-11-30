@@ -53,43 +53,27 @@
           <h1 class="page-header">{{ request.user.member.group.name }}</h1>
 
           <div class="row placeholders">
+          {% load account_extras %}
+            {% for member in group_members %}
 
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <div class="profile-image profile-general profile-1">
-                <span>JM</span>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <div class="profile-image profile-general profile-1">
+                  <span>{{ member.user.username|initials }}</span>
+                </div>
+                <h4>{{ member.user }}</h4>
               </div>
-              <h4>James Morrison</h4>
-            </div>
 
-            <div class="col-xs-6 col-sm-3 placeholder">
-               <div class="profile-image profile-general profile-2">
-                  <span>ZM</span>
-                </div>
-              <h4>Zach Mangson</h4>
-            </div>
-
-            <div class="col-xs-6 col-sm-3 placeholder">
-                 <div class="profile-image profile-general profile-3">
-                  <span>BF</span>
-                </div>
-              <h4>Ben French</h4>
-            </div>
-
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <div class="profile-image profile-general profile-4">
-                  <span>RE</span>
-                </div>
-              <h4>Reiss Evans</h4>
-            </div>
+            {% endfor %}
 
           </div>
 
-          <div class="row placeholders" id="expense-table">
+          <div class="row placeholders">
             <div class="col-md-11 placeholder">
                 <h2>Expenses</h2>
             </div>
             <div class="col-md-1 placeholder">
-              <h2><a href="#" class="btn btn-circle btn-primary"><i class="glyphicon glyphicon-plus"></i></a></h2>
+              <h2><a href="#" class="btn btn-circle btn-primary" data-toggle="modal" 
+              data-target="#expense_modal"><i class="glyphicon glyphicon-plus"></i></a></h2>
             </div>
            <hr>
           </div>
@@ -107,33 +91,46 @@
                 </tr>
               </thead>
               <tbody>
+                {% for expense in group_expenses %}
+                  <tr>
+                    <td id="expense_number">#</td>
+                    <td id="expense_name"> {{ expense.description }} </td>
+                    <td id="expense_due"> {{ expense.due_by }} </td>
+                    <td id="expense_cost"> {{ expense.cost }} </td>
+                    <td>NA</td>
+                  </tr>
                 <tr>
-                  <td>1</td>
-                  <td>Electric</td>
-                  <td>11/28/2016</td>
-                  <td>$120</td>
-                  <td>James, Zach, Ben, Reiss</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Internet</td>
-                  <td>11/28/2016</td>
-                  <td>$60</td>
-                  <td>James, Zach, Ben</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Gas</td>
-                  <td>11/28/2016</td>
-                  <td>$30</td>
-                  <td>Zach, Ben, Reiss</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="expense_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="row">
+              <div class="col-md-12">
+              <form id="expense" href="{% url 'dashboard' %}" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                  {% csrf_token %}
+                  <center>
+                          {% load crispy_forms_tags %}
+                          {% crispy expense_form expense_form.helper %}
+                  </center>
+
+                  <center><button type="submit" id="login_button" class="btn btn-primary btn-round btn-lg">Login</button></center>
+                </div>
+              </form>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
   
     <!-- Bootstrap core JavaScript    <script src="static/js/bootstrap/bootstrap.min.js"></script>
 

@@ -75,11 +75,11 @@ h4 {
   line-height: 2.00;
   border-radius: 50%;
   background-color: var(--themeOrange);
-  border-color: var(--themeDarkGray);
+  border: 1px solid var(--themeDarkGray); 
 }
 
-#expense-table{
-  margin-top: 30px;
+.placeholders{
+  margin-top: 50px;
 }
 
 hr { 
@@ -188,6 +188,40 @@ hr {
 
 #expenses tr{ 
   line-height: 14px; 
+}
+
+/*CSS for the register and the login boxes*/
+#expense_modal{
+  color: var(--themeGreen);
+}
+
+.modal-body, .modal-header{
+    color: #FFFFFF;
+    font-family: inherit;
+  background-color: var(--themeGreen);
+}
+
+.modal-header{
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.modal-body{
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.text-muted {
+    color: #ffffff;
+}
+
+#create_account, #login_button{
+  background-color: var(--themeOrange);
+  border-radius: 25px;
+}
+
+.modal-dialog {
+    width: 400px;
 }
 
 

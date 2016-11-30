@@ -10,15 +10,14 @@ class Group(models.Model):
     name = models.CharField(max_length=30)
     code = models.CharField(max_length=6, unique=True)
 
-
     @classmethod
-    def create(cls, name):
-        group = cls(name=name)
+    def create(cls, name, code):
+        group = cls(name=name, code=code)
         group.save()
         return group
 
     def __str__(self):
-        return self.name
+        return "%s\tId: %s" % (self.name, self.code)
 
 
 class Member(models.Model):
@@ -28,7 +27,7 @@ class Member(models.Model):
         unique_together = (('user', 'group'),)
 
     user = models.OneToOneField(User)
-    group = models.ForeignKey(Group, related_name='members')
+    group = models.ForeignKey(Group, related_name='group')
 
     def get_group(self):
         return Group.objects.get(pk=self.group_id)
@@ -37,22 +36,32 @@ class Member(models.Model):
         return self.group.name
 
     @classmethod
-    def create(cls, member, group):
-        member = cls(member=member, group=group)
+    def create(cls, user, group):
+        member = cls(user=user, group=group)
         member.save()
         return member
 
     def __str__(self):
-        return "%s is in %s" % (self.member, self.group)
+        return "%s is in %s" % (self.user, self.group)
 
 
 # Django generates an auto-incremented ID for users
 class Expense(models.Model):
+    description = models.CharField(default='Expense', max_length=40)
     cost = models.FloatField()
     pay_to = models.ForeignKey(User)
-    due_by = models.DateField()
+    due_by = models.DateField(default=datetime.date.today)
     date_added = models.DateField("date_added", default=datetime.date.today)
     shared_by = models.ForeignKey(Group)
+
+    @classmethod
+    def create(cls, description, cost, pay_to, shared_by):
+        expense = cls(description=description, cost=cost, pay_to=pay_to, shared_by=shared_by)
+        expense.save()
+        return expense
+
+    def __str__(self):
+        return "Expense: %s\tCost: %s\tPay To: %s" % (self.description, self.cost, self.pay_to)
 
 
 # Track what members are to share an expense

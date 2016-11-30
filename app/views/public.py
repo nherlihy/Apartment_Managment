@@ -7,6 +7,9 @@ from django.http import HttpResponseRedirect, HttpResponse, Http404
 
 from app.forms.user_registration import UserForm
 from app.forms.login import LoginForm
+from app.forms.expense import ExpenseForm
+from app.models.models import Expense
+from app.models.models import Member
 from app.services.user import user_is_member
 
 
@@ -38,7 +41,12 @@ def home(request):
 
     elif request.user.is_authenticated and request.user.username != '':
         if user_is_member(request.user):
-            return render(request, 'dashboard.html')
+            group = request.user.member.group   # get the group from the request
+            group_members = Member.objects.filter(group_id=group)
+            expense_form = ExpenseForm()
+            group_expenses = Expense.objects.order_by('id')
+            return render(request, 'dashboard.html',
+                          {'expense_form': expense_form, 'group_expenses': group_expenses, 'group_members': group_members})
 
         else:
             return HttpResponseRedirect('/register')
