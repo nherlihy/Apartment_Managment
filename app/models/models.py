@@ -62,11 +62,3 @@ class Expense(models.Model):
 
     def __str__(self):
         return "Expense: %s\tCost: %s\tPay To: %s" % (self.description, self.cost, self.pay_to)
-
-
-# Track what members are to share an expense
-# class SharedExpense(models.Model):
-#     group_name = models.ForeignKey(Group, related_name="group")
-#     member = models.ForeignKey(User, related_name="member")
-#     expense = models.ForeignKey(Expense, related_name="expense")
-#     is_paid = models.BooleanField()

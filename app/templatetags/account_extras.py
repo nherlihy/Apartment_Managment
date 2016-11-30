@@ -10,3 +10,4 @@ register = template.Library()
 @stringfilter
 def initials(name):
     return name[0]
+
