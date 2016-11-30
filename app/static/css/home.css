@@ -133,6 +133,11 @@ hr {
 #create_account, #login_button{
 	background-color: var(--themeOrange);
 	border-radius: 25px;
+  	border-color: var(--themeLightGray);
+}
+
+#create_account:hover, #login_button:hover{
+  	border-color: var(--themeDarkGray);
 }
 
 .modal-dialog {
