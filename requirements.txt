@@ -7,7 +7,6 @@ gunicorn==19.6.0
 lxml==3.6.4
 MySQL-python==1.2.5
 pycrypto==2.6.1
-pyrit==0.3.0
 pytz==2016.7
 requests==2.11.1
 scapy==2.3.2
