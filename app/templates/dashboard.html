@@ -55,7 +55,7 @@
             {% for member in group_members %}
 
               <div class="col-xs-6 col-sm-3 placeholder">
-                <div class="profile-image profile-general profile-1">
+                <div class="profile-image profile-general {{ ''|profile_image }}">
                   <span>{{ member.user.username|initials }}</span>
                 </div>
                 <h4>{{ member.user }}</h4>
