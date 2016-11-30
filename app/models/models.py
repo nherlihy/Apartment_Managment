@@ -42,14 +42,14 @@ class Member(models.Model):
         return member
 
     def __str__(self):
-        return "%s is in %s" % (self.user, self.group)
+        return "%s" % self.user
 
 
 # Django generates an auto-incremented ID for users
 class Expense(models.Model):
     description = models.CharField(default='Expense', max_length=40)
-    cost = models.FloatField()
-    pay_to = models.ForeignKey(User)
+    cost = models.DecimalField(max_digits=6, decimal_places=2)
+    pay_to = models.ForeignKey(Member)
     due_by = models.DateField(default=datetime.date.today)
     date_added = models.DateField("date_added", default=datetime.date.today)
     shared_by = models.ForeignKey(Group)
