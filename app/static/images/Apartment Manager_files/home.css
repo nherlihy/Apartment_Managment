@@ -5,14 +5,11 @@ Maroon: #552437
 green: #547779*/
 
 :root{
-  --themeYellow: #EBCE7E;
-  --themeOrange: #D65C47;
-  --themeRed: #BF2C46;
-  --themeMaroon: #552437;
-  --themeGreen: #547779;
-  --themeLightGray: #B2B3B5;
-  --themeDarkGray: #59595A;
-  --themeTableHover: #8E8F90;
+	--themeYellow: #EBCE7E;
+	--themeOrange: #D65C47;
+	--themeRed: #BF2C46;
+	--themeMaroon: #552437;
+	--themeGreen: #547779;
 }
 
 .masthead, .mastfoot, .cover-container{
@@ -21,8 +18,8 @@ green: #547779*/
 
 .btn-round{
 	border-radius: 17px;
-	background-color: var(--themeLightGray);
-	border-color: var(--themeLightGray);
+	background-color: var(--themeGreen);
+	border-color: var(--themeGreen);
 }
 
 .btn-group{
@@ -49,8 +46,8 @@ hr {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     border-width: 2px;
-    color: var(--themeLightGray);
-    background-color: var(--themeLightGray);
+    color: var(--themeGreen);
+    background-color: var(--themeGreen);
 }
 
 .cover-heading{
@@ -105,13 +102,13 @@ hr {
 
 /*CSS for the register and the login boxes*/
 #signup_modal{
-	color: var(--themeLightGray);
+	color: var(--themeGreen);
 }
 
 .modal-body, .modal-header{
     color: #FFFFFF;
     font-family: inherit;
-	background-color: var(--themeLightGray);
+	background-color: var(--themeGreen);
 }
 
 .modal-header{
@@ -120,8 +117,6 @@ hr {
 }
 
 .modal-body{
-	border-top-right-radius: 5px;
-  	border-top-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
