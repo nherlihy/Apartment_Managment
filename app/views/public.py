@@ -51,7 +51,8 @@ def home(request):
 				total_expenses += expense.total_cost
 
             return render(request, 'dashboard.html',
-                          {'expense_form' : expense_form, 'group_expenses': group_expenses, 'group_members': group_members, 'total_expenses' : total_expenses})
+                          {'expense_form' : expense_form, 'group_expenses': group_expenses,
+                           'group_members': group_members, 'total_expenses' : total_expenses})
 
         else:
             return HttpResponseRedirect('/register')

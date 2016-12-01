@@ -54,6 +54,7 @@ class Expense(models.Model):
     due_by = models.DateField(default=datetime.date.today)
     date_added = models.DateField("date_added", default=datetime.date.today)
     shared_by = models.ForeignKey(Group)
+    is_payed = models.BooleanField(default=False)
 
     @classmethod
     def create(cls, description, cost, pay_to, shared_by):

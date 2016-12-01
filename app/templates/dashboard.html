@@ -88,29 +88,32 @@
             <table id="expenses_table" class="table table-hover">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>Status</th>
                   <th>Name</th>
                   <th>Date Added</th>
                   <th>Due Date</th>
                   <th>Total Cost</th>
                   <th>Amount Due</th>
-                  <th>Needs to Pay</th>
                   <th>Pay To</th>
                 </tr>
               </thead>
               <tbody>
                 {% for expense in group_expenses %}
                   <tr>
-                    <td id="expense_number">{{ expense.id }}</td>
+                    <td id="expense_status">
+                    	{% if expense.is_payed %}
+                    		Payed
+                    	{% elif expense.pay_to.user == request.user %}
+                    		<button type="button" id="{{expense.pk}}" class="btn btn-danger btn-sm">Clear Payment</button>
+                    	{% else %}
+                    		Pending
+                    	{% endif %}
+                    </td>
                     <td id="expense_name"> {{ expense.description }} </td>
 	                <td id="expense_added">{{ expense.date_added|date:"m-d-Y" }}</td>
                     <td id="expense_due"> {{ expense.due_by|date:"m-d-Y" }} </td>
                     <td id="expense_total_cost"> ${{ expense.total_cost|floatformat:2 }} </td>
                     <td id="expense_split_cost"> ${{ expense.split_cost|floatformat:2 }} </td>
-                    <td> {% for member in group_members %} 
-                          {{ member.user }}, 
-                          {% endfor %}
-                    </td>
                     <td>{{ expense.pay_to }}</td>
                   </tr>
                 {% endfor %}
