@@ -29,15 +29,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hello, {{ request.user.username }}</a>
+          <span class="navbar-brand" href="#">Hello, {{ request.user.username }}</span>
         </div>
-
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
           </ul>
         </div>
@@ -57,7 +54,7 @@
             {% for member in group_members %}
 
               <div class="col-xs-6 col-sm-3 placeholder">
-                <div class="profile-image profile-general profile-1">
+                <div class="profile-image profile-general {{ ''|profile_image }}">
                   <span>{{ member.user.username|initials }}</span>
                 </div>
                 <h4>{{ member.user }}</h4>
@@ -85,9 +82,11 @@
                 <tr>
                   <th>#</th>
                   <th>Name</th>
+                  <th>Date Added</th>
                   <th>Due Date</th>
                   <th>Cost</th>
-                  <th>Members</th>
+                  <th></th>
+                  <th>Pay To</th>
                 </tr>
               </thead>
               <tbody>
@@ -95,9 +94,14 @@
                   <tr>
                     <td id="expense_number">{{ expense.id }}</td>
                     <td id="expense_name"> {{ expense.description }} </td>
+	                <td id="expense_added">{{ expense.date_added|date:"m-d-Y" }}</td>
                     <td id="expense_due"> {{ expense.due_by|date:"m-d-Y" }} </td>
                     <td id="expense_cost"> {{ expense.cost|floatformat:2 }} </td>
-                    <td>NA</td>
+                    <td> {% for member in group_members %} 
+                          {{ member.user }}, 
+                          {% endfor %}
+                    </td>
+                    <td>{{ expense.pay_to }}</td>
                   </tr>
                 {% endfor %}
               </tbody>

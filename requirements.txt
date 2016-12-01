@@ -1,0 +1,16 @@
+cssselect==1.0.0
+deferred==0.2
+dj-database-url==0.4.1
+Django==1.9.1
+django-crispy-forms==1.6.0
+gunicorn==19.6.0
+lxml==3.6.4
+MySQL-python==1.2.5
+pycrypto==2.6.1
+pytz==2016.7
+requests==2.11.1
+scapy==2.3.2
+setupfiles==0.0.13
+urllib3==1.19
+virtualenv==15.0.3
+whitenoise==3.2
