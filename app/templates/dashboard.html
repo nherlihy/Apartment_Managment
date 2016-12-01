@@ -90,7 +90,7 @@
 
 
           <div class="table-responsive">
-            <table id="expenses" class="table table-hover">
+            <table id="expenses_table" class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
@@ -105,18 +105,17 @@
               <tbody>
                 {% for expense in group_expenses %}
                   <tr>
-                    <td id="expense_number">#</td>
+                    <td id="expense_number">{{ expense.id }}</td>
                     <td id="expense_name"> {{ expense.description }} </td>
-                    <td>{{ expense.date_added }}</td>
-                    <td id="expense_due"> {{ expense.due_by }} </td>
-                    <td id="expense_cost"> {{ expense.cost }} </td>
+	                <td id="expense_added">{{ expense.date_added|date:"m-d-Y" }}</td>
+                    <td id="expense_due"> {{ expense.due_by|date:"m-d-Y" }} </td>
+                    <td id="expense_cost"> {{ expense.cost|floatformat:2 }} </td>
                     <td> {% for member in group_members %} 
                           {{ member.user }}, 
                           {% endfor %}
                     </td>
                     <td>{{ expense.pay_to }}</td>
                   </tr>
-                <tr>
                 {% endfor %}
               </tbody>
             </table>

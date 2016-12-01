@@ -79,13 +79,13 @@ h4 {
   padding: 0 auto;
 }
 
-#create_group_button, #join_group_button {
+#create_group_button, #join_group_button, #expense_submit {
   background-color: var(--themeOrange);
   border-radius: 25px;
   border-color: var(--themeLightGray);
 }
 
-#create_group_button:hover, #join_group_button:hover{
+#create_group_button:hover, #join_group_button:hover, #expense_submit:hover{
   border: 1px solid var(--themeDarkGray);
 }
 

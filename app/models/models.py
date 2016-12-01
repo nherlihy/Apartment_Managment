@@ -48,7 +48,7 @@ class Member(models.Model):
 # Django generates an auto-incremented ID for users
 class Expense(models.Model):
     description = models.CharField(default='Expense', max_length=40)
-    cost = models.DecimalField(max_digits=6, decimal_places=2)
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
     pay_to = models.ForeignKey(Member)
     due_by = models.DateField(default=datetime.date.today)
     date_added = models.DateField("date_added", default=datetime.date.today)
