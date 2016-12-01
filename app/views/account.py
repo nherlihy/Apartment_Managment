@@ -108,6 +108,7 @@ def add_to_group(request):
         return HttpResponse(json.dumps(response), content_type='application/json')
 
 def profile(request):
+    updated = False
     if request.method == 'POST':
         update_profile = UpdateProfile(request.POST, instance = request.user)
     else:
@@ -115,5 +116,7 @@ def profile(request):
 
     if update_profile.is_valid():
         update_profile.save()
+        updated = True
+        return render(request, 'profile.html', {'update_profile':update_profile, 'updated': updated})
 
     return render(request, 'profile.html', {'update_profile':update_profile})

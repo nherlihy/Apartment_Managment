@@ -50,6 +50,11 @@
 	                {% load crispy_forms_tags %}
 	                {% crispy update_profile update_profile.helper %}
 	              </center>
+                  <center>
+                    {% if updated == True %}
+                    <span>Updated!</span>
+                    {% endif %}
+                  </center>
 	              <center><button type="submit" id="update_button" class="btn btn-primary btn-round btn-lg">Save</button></center>
 	              </div>
 	          </form>
