@@ -60,7 +60,8 @@
               </div>
           </div>
 
-          <hr>
+          <h1 class="page-header">{{ request.user.member.group.name }}</h1>
+          <h5>Group Code: {{ request.user.member.group.code }} </h5>
 
           <div class="row placeholders">
           {% load account_extras %}
@@ -97,8 +98,9 @@
                   <th>Name</th>
                   <th>Date Added</th>
                   <th>Due Date</th>
-                  <th>Cost</th>
-                  <th></th>
+                  <th>Total Cost</th>
+                  <th>Amount Due</th>
+                  <th>Needs to Pay</th>
                   <th>Pay To</th>
                 </tr>
               </thead>
@@ -109,7 +111,8 @@
                     <td id="expense_name"> {{ expense.description }} </td>
 	                <td id="expense_added">{{ expense.date_added|date:"m-d-Y" }}</td>
                     <td id="expense_due"> {{ expense.due_by|date:"m-d-Y" }} </td>
-                    <td id="expense_cost"> {{ expense.cost|floatformat:2 }} </td>
+                    <td id="expense_total_cost"> ${{ expense.total_cost|floatformat:2 }} </td>
+                    <td id="expense_split_cost"> ${{ expense.split_cost|floatformat:2 }} </td>
                     <td> {% for member in group_members %} 
                           {{ member.user }}, 
                           {% endfor %}

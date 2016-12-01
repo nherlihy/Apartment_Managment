@@ -14,9 +14,11 @@ def ajax_add_expense(request):
 		if expense_form.is_valid():
 			expense = expense_form.save(commit=False)
 			expense.shared_by = request.user.member.group
+			expense.split_cost = expense.total_cost / request.user.member.group.members.count()
 			expense.save()
 
 			data['expense'] = serializers.serialize("json", [expense,])
+			data['pay_to'] = expense.pay_to.user.username
 			response['data'] = data
 			response['success'] = 'success'
 

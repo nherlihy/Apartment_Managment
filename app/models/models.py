@@ -27,7 +27,7 @@ class Member(models.Model):
         unique_together = (('user', 'group'),)
 
     user = models.OneToOneField(User)
-    group = models.ForeignKey(Group, related_name='group')
+    group = models.ForeignKey(Group, related_name='members')
 
     def get_group(self):
         return Group.objects.get(pk=self.group_id)
@@ -48,7 +48,8 @@ class Member(models.Model):
 # Django generates an auto-incremented ID for users
 class Expense(models.Model):
     description = models.CharField(default='Expense', max_length=40)
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    total_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    split_cost = models.DecimalField(max_digits=10, decimal_places=2)
     pay_to = models.ForeignKey(Member)
     due_by = models.DateField(default=datetime.date.today)
     date_added = models.DateField("date_added", default=datetime.date.today)
