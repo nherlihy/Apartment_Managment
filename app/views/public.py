@@ -46,9 +46,12 @@ def home(request):
             expense_form = ExpenseForm()
             expense_form.fields['pay_to'].queryset = group_members
             group_expenses = Expense.objects.order_by('-id')
+            total_expenses = 0
+            for expense in group_expenses:
+				total_expenses += expense.total_cost
 
             return render(request, 'dashboard.html',
-                          {'expense_form' : expense_form, 'group_expenses': group_expenses, 'group_members': group_members})
+                          {'expense_form' : expense_form, 'group_expenses': group_expenses, 'group_members': group_members, 'total_expenses' : total_expenses})
 
         else:
             return HttpResponseRedirect('/register')
