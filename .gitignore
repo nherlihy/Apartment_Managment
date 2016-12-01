@@ -2,3 +2,4 @@ migrations/
 .DS_Store
 *.pyc
 .idea
+apartment_managment/settings.py
