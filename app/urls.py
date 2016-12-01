@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from app.views import public, dashboard, account
 
+app_name = 'app'
 urlpatterns = [
 	url(r'^$', public.home, name='home'),
 	url(r'^logout', account.log_out, name='logout'),

@@ -13,11 +13,11 @@
     <title>Apartment Manager</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="static/css/cover.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/home.css">
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
   </head>
 
   <body>
@@ -84,7 +84,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Cover template for <a href="{% url 'test' %}">View Registered Users</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+              <p>Cover template for <a href="#">View Registered Users</a>, by <a href="#">@mdo</a>.</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@
             <div class="modal-body">
               <div class="row">
               <div class="col-md-12">
-              <form id="sign_up" href="{% url 'home' %}" method="POST"  enctype="multipart/form-data">
+              <form id="sign_up" href="{% url 'app:home' %}" method="POST"  enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                 <center><p class="text-muted">Create your FREE Account!</p></center>
@@ -135,7 +135,7 @@
             <div class="modal-body">
               <div class="row">
               <div class="col-md-12">
-              <form id="login" href="{% url 'login' %}" method="POST"  enctype="multipart/form-data">
+              <form id="login" href="{% url 'app:login' %}" method="POST"  enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
 
@@ -161,8 +161,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="static/js/bootstrap/bootstrap.min.js"></script>
-    <script src ="static/js/home.js"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src ="{% static 'js/home.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   </body>
 </html>

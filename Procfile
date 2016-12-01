@@ -1,1 +1,1 @@
-web: gunicorn apartment_management.wsgi
+web: gunicorn apartment_managment.wsgi
