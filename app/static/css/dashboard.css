@@ -24,6 +24,10 @@ h4 {
   text-align: center;
 }
 
+#group_code{
+  text-align: left;
+}
+
 /*Make a circular div for the user profile images*/
 .profile-image{
   border-radius: 50%;
@@ -71,6 +75,14 @@ h4 {
     border: 4px solid var(--themeDarkGray);
 }
 
+#profile_placeholder .row_placeholders{
+  display: inline-block;
+}
+
+#member_profile{
+  margin: auto;
+}
+
 #share-button{
   align-content: center;
   text-align: center;
@@ -79,16 +91,20 @@ h4 {
   padding: 0 auto;
 }
 
-#create_group_button, #join_group_button, #expense_submit {
+#create_group_button, #join_group_button, #expense_submit, #update_button{
   background-color: var(--themeOrange);
   border-radius: 25px;
   border-color: var(--themeLightGray);
 }
 
-#create_group_button:hover, #join_group_button:hover, #expense_submit:hover{
+#create_group_button:hover, #join_group_button:hover, #expense_submit:hover, #update_button:hover{
   border: 1px solid var(--themeDarkGray);
 }
 
+#create_account, #login_button{
+  background-color: var(--themeOrange);
+  border-radius: 25px;
+}
 
 .btn-circle {
   width: 49px;
@@ -174,6 +190,7 @@ hr {
   color: var(--themeLightGray);
   background-color: transparent;
 }
+
 /*
  * Sidebar
  */
@@ -183,6 +200,7 @@ hr {
   display: none;
   text-shadow: none;
 }
+
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
@@ -264,16 +282,35 @@ hr {
     color: #ffffff;
 }
 
-#create_account, #login_button{
-  background-color: var(--themeOrange);
-  border-radius: 25px;
-}
-
 .modal-dialog {
     width: 400px;
 }
 
+/* Profile */
 
+#profile_header{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #fff;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+#profile_form{
+  width:60%;
+  margin-left: 20%;
+}
+
+#profile_boxes .form-group{
+  margin-bottom: 15px;
+}
+
+#profile_boxes .control-label{
+  float: left;
+}
+
+#update_button{
+  margin-top: 8px;
+}
 /*
  * Placeholder dashboard ideas
 
