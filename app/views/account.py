@@ -8,6 +8,8 @@ from django.shortcuts import HttpResponseRedirect, HttpResponse, render
 from app.forms.user_registration import UserForm
 from app.forms.group import GroupForm
 from app.forms.login import LoginForm
+from app.forms.update_profile import UpdateProfile
+
 from app.models import *
 
 
@@ -105,3 +107,13 @@ def add_to_group(request):
 
         return HttpResponse(json.dumps(response), content_type='application/json')
 
+def profile(request):
+    if request.method == 'POST':
+        update_profile = UpdateProfile(request.POST, instance = request.user)
+    else:
+        update_profile = UpdateProfile(initial= {'username': request.user.username, 'email': request.user.email} , instance = request.user)
+
+    if update_profile.is_valid():
+        update_profile.save()
+
+    return render(request, 'profile.html', {'update_profile':update_profile})
