@@ -19,12 +19,16 @@ class Group(models.Model):
     def __str__(self):
         return "%s\tId: %s" % (self.name, self.code)
 
+    class Meta:
+        app_label = 'app'
+
 
 class Member(models.Model):
 
     # Ensure each member and group combination is unique
     class Meta:
         unique_together = (('user', 'group'),)
+        app_label = 'app'
 
     user = models.OneToOneField(User)
     group = models.ForeignKey(Group, related_name='members')
@@ -63,3 +67,6 @@ class Expense(models.Model):
 
     def __str__(self):
         return "Expense: %s\tCost: %s\tPay To: %s" % (self.description, self.cost, self.pay_to)
+
+    class Meta:
+        app_label = 'app'
