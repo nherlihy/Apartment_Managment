@@ -34,10 +34,13 @@ $(document).ready(function() {
 		    	success: function(response){
 		    		if(response.success){
 		    			var expense = JSON.parse(response.data.expense)[0];
-		    			var date_split = expense.fields.due_by.split('-');
-		    			var date = date_split[1] + '-' + date_split[2] + '-' + date_split[0];
+		    			var due_date_split = expense.fields.due_by.split('-');
+		    			var create_date_split = expense.fields.date_added.split('-');
+		    			var due_date = due_date_split[1] + '-' + due_date_split[2] + '-' + due_date_split[0];
+		    			var create_date = create_date_split[1] + '-' + create_date_split[2] + '-' + create_date_split[0];
 			    		$('#expenses_table tr:first').after('<tr><td id="expense_number"> ' + expense.pk +'</td><td id="expense_name"> ' + expense.fields.description + ' </td> \
-                    										  <td id="expense_due"> ' + date + ' </td><td id="expense_cost"> ' + expense.fields.cost + '</td><td>NA</td></tr>');
+                    										  <td id="expense_created">' + create_date + ' <td id="expense_due"> ' + due_date + ' </td><td id="expense_cost"> ' + expense.fields.cost + '</td><td>NA</td></tr>');
+			    		$('#expense_modal').modal('hide');
 		    		}
 		    		else{
 		    			var errors = JSON.parse(response.data.errors);
