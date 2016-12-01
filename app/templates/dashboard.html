@@ -50,17 +50,10 @@
               <div class="col-md-11 placeholder">
                 <h1>{{ request.user.member.group.name }}</h1>
               </div>
-              <div class="col-md-1 placeholder">
-                <h2>
-                  <a href="#" class="btn btn-circle btn-primary">
-                    <center>
-                      <img src="{% static 'images/invite.svg' %}" style="height: 25px; width: 25px;" >
-                    </center>
-                  </a></h2>
-              </div>
           </div>
 
-          <h1 class="page-header">{{ request.user.member.group.name }}</h1>
+          <hr>
+
           <h5>Group Code: {{ request.user.member.group.code }} </h5>
 
           <div class="row placeholders">
