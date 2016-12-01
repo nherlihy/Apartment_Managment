@@ -14,7 +14,7 @@ class UserForm(forms.ModelForm):
     username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
-    comfirm_password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Comfirm Password'}))
+    comfirm_password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
