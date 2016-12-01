@@ -34,14 +34,21 @@ $(document).ready(function() {
 		    	success: function(response){
 		    		if(response.success){
 		    			var expense = JSON.parse(response.data.expense)[0];
-		    			console.log(response);
 		    			var due_date_split = expense.fields.due_by.split('-');
 		    			var create_date_split = expense.fields.date_added.split('-');
 		    			var due_date = due_date_split[1] + '-' + due_date_split[2] + '-' + due_date_split[0];
 		    			var create_date = create_date_split[1] + '-' + create_date_split[2] + '-' + create_date_split[0];
-			    		$('#expenses_table tr:first').after('<tr><td id="expense_number"> ' + expense.pk +'</td><td id="expense_name"> ' + expense.fields.description + ' </td> \
-                    										  <td id="expense_created">' + create_date + ' <td id="expense_due"> ' + due_date + ' </td><td id="expense_cost"> ' + expense.fields.total_cost + '</td> \
-                    										  <td>' + expense.fields.split_cost + '</td><td> ADD MEMBers</td><td id="pay_to">' + response.data.pay_to + ' </td></tr>');
+
+		    			if(response.data.pay_to == response.data.request_user){
+		    				var button = '<button type="button" id="' + expense.pk + '" class="btn btn-danger btn-sm">Clear Payment</button>' 
+		    			}
+		    			else{
+		    				var button = 'Pending'
+		    			}
+
+			    		$('#expenses_table tr:first').after('<tr><td id="expense_number">' + button + '</td><td id="expense_name"> ' + expense.fields.description + ' </td> \
+                    										  <td id="expense_created">' + create_date + ' <td id="expense_due"> ' + due_date + ' </td><td id="expense_cost">$' + expense.fields.total_cost + '</td> \
+                    										  <td>$' + expense.fields.split_cost + '</td><td id="pay_to">' + response.data.pay_to + ' </td></tr>');
 			    		$('#expense_modal').modal('hide');
 		    		}
 		    		else{
@@ -71,6 +78,50 @@ $(document).ready(function() {
 			})
 		}
 	})
+
+	$('body').on('click', '.btn.btn-danger', function(e){
+		e.preventDefault();
+		var id = $(this).attr('id');
+		$(this).hide();
+
+		var td = $(this).parent();
+		td.append('Confirm:<button type="button" class="btn btn-link" id="yes">Yes</button><button type="button" id="no" class="btn btn-link">No</button>');
+	})
+
+	$('body').on('click', '.btn.btn-link', function(e){
+		e.preventDefault();
+		if($(this).attr('id') == 'no'){
+			var button = $(this).prev().prev().show();
+			var td = button.parent();
+			td.empty();
+			td.append(button);
+		}
+		else{
+			var id = $(this).prev().attr('id');
+			var csrftoken = getCookie('csrftoken');
+
+			$.ajax({
+				headers: { 'X-CSRFToken': csrftoken },
+		    	url: 'ajax/clear-expense',
+		    	type: 'PUT',
+		    	data: {'id' : id},
+		    	success: function(response){
+		    		var expense = JSON.parse(response.data.expense)[0];
+		    		$('#' + id).parent().parent().remove();
+
+		    		var due_date_split = expense.fields.due_by.split('-');
+		    		var create_date_split = expense.fields.date_added.split('-');
+		    		var due_date = due_date_split[1] + '-' + due_date_split[2] + '-' + due_date_split[0];
+		    		var create_date = create_date_split[1] + '-' + create_date_split[2] + '-' + create_date_split[0];
+
+			    		$('#expenses_table tr:first').after('<tr><td id="expense_number">Payed</td><td id="expense_name"> ' + expense.fields.description + ' </td> \
+                    										  <td id="expense_created">' + create_date + ' <td id="expense_due"> ' + due_date + ' </td><td id="expense_cost">$' + expense.fields.total_cost + '</td> \
+                    										  <td>$' + expense.fields.split_cost + '</td><td id="pay_to">' + response.data.pay_to + ' </td></tr>');
+		    	}
+		});
+
+	}
+	});
 
     function getCookie(name) {
         var cookieValue = null;
