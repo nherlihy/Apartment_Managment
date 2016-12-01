@@ -24,6 +24,10 @@ h4 {
   text-align: center;
 }
 
+#group_code{
+  text-align: left;
+}
+
 /*Make a circular div for the user profile images*/
 .profile-image{
   border-radius: 50%;
@@ -69,6 +73,14 @@ h4 {
 .profile-5 {
     background: var(--themeYellow);
     border: 4px solid var(--themeDarkGray);
+}
+
+#profile_placeholder .row_placeholders{
+  display: inline-block;
+}
+
+#member_profile{
+  margin: auto;
 }
 
 #share-button{

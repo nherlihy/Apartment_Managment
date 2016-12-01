@@ -54,20 +54,20 @@
 
           <hr>
 
-          <h3>Group Code: {{ request.user.member.group.code }} </h3>
+          <h4 id="group_code" >Group Code: {{ request.user.member.group.code }} </h4>
           <h5>Total Expenses: $ {{ total_expenses }}
 
-          <div class="row placeholders">
+          <div id="profile_placeholder" class="row placeholders">
           {% load account_extras %}
             {% for member in group_members %}
-
+            <td id="member_profile">
               <div class="col-xs-6 col-sm-3 placeholder">
                 <div class="profile-image profile-general {{ ''|profile_image }}">
                   <span>{{ member.user.username|initials }}</span>
                 </div>
                 <h4>{{ member.user }}</h4>
               </div>
-
+            </td>
             {% endfor %}
 
           </div>
