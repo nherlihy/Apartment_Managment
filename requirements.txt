@@ -10,7 +10,7 @@ psycopg2==2.6.2
 pycrypto==2.6.1
 pytz==2016.7
 requests==2.11.1
-scapy==2.3.2
+scapy==2.4.1
 setupfiles==0.0.13
 urllib3==1.19
 virtualenv==15.0.3
