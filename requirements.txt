@@ -12,6 +12,6 @@ pytz==2016.7
 requests==2.11.1
 scapy==2.3.2
 setupfiles==0.0.13
-urllib3==1.19
+urllib3==1.26.5
 virtualenv==15.0.3
 whitenoise==3.2
